@@ -34,31 +34,23 @@ You can find the library on `window.ReactRouter.addons.Routes
 
 ## Motivation
 
-With the introduction of React Router v4, there is no longer a
-centralized route configuration. There are some use-cases where it is
-valuable to know about all the app's potential routes such as:
+With the introduction of React Router v4, there is no longer a centralized route configuration. There are some use-cases where it is valuable to know about all the app's potential routes such as:
 
 - Loading data on the server before rendering
 - Linking to routes by name
 - Static analysis
 
-This project seeks to define a shared format for others to build
-patterns on top of.
+This project seeks to define a shared format for others to build patterns on top of.
 
 ## We Need Help Here
 
-We aren't particularly interested in this ourselves, which runs the risk
-of us not prioritizing this project. It is a valuable piece of UI
-routing that deserves some strong patterns by people who rely on it.
+We aren't particularly interested in using this ourselves, which runs the risk of us not prioritizing this project. It is a valuable piece of UI routing that deserves some strong patterns by people who rely on it.
 
-This is meant as a starting point for folks out there who are very
-interested in it, who will quickly take ownership of it :D
+This is meant as a starting point for folks out there who are very interested in it, who will quickly take ownership of it :D
 
 ## Route Configuration Shape
 
-Routes are objects with the same properties as `<Match>` with the
-addition of `routes` for sub routes and `name`. Also, consumers are free
-to add any additional props they'd like.
+Routes are objects with the same properties as `<Match>` with the addition of `routes` for sub routes and `name`. Also, consumers are free to add any additional props they'd like.
 
 ```js
 const routes = [
@@ -88,9 +80,7 @@ const matchedRoutes = matchRoutesToLocation(routes, location)
 // now you could do some sort of data loading
 ```
 
-This can be used server-side or in a data component's lifecycle
-to determine which routes are going to be rendered next. Ideal for data
-loading.
+This can be used server-side or in a data component's lifecycle to determine which routes are going to be rendered next. Ideal for data loading.
 
 
 ###  `<RoutesProvider routes>`
@@ -107,8 +97,7 @@ ReactDOM.render((
 
 ### `<MatchWithRoutes>`
 
-A sub-routes aware replacement for `<Match>`. Render these instead and
-they will pass down the sub routes to the next rendered route component.
+A sub-routes aware replacement for `<Match>`. Render these instead and they will pass down the sub routes to the next rendered route component.
 
 ```js
 const App = ({ routes }) => (
