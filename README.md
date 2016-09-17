@@ -78,6 +78,15 @@ const location = { pathname: '/brad-pitt/is/my-cousin' }
 const matchedRoutes = matchRoutesToLocation(routes, location)
 
 // now you could do some sort of data loading
+// lets assume the route's components have a `loadData` static
+// function on them:
+Promise.all(
+  matchedRoutes.filter(route => route.component.loadData).map(route => (
+    route.fetchData()
+  ))
+).then(data => {
+  // put the data somewhere and render
+})
 ```
 
 This can be used server-side or in a data component's lifecycle to determine which routes are going to be rendered next. Ideal for data loading.
