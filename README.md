@@ -82,7 +82,7 @@ const matchedRoutes = matchRoutesToLocation(routes, location)
 // function on them:
 Promise.all(
   matchedRoutes.filter(route => route.component.loadData).map(route => (
-    route.fetchData()
+    route.loadData()
   ))
 ).then(data => {
   // put the data somewhere and render
