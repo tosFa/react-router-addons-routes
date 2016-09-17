@@ -36,7 +36,7 @@ You can find the library on `window.ReactRouter.addons.Routes
 
 With the introduction of React Router v4, there is no longer a centralized route configuration. There are some use-cases where it is valuable to know about all the app's potential routes such as:
 
-- Loading data on the server before rendering
+- Loading data on the server or in the lifecycle before rendering the next screen
 - Linking to routes by name
 - Static analysis
 
