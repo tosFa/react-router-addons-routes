@@ -114,7 +114,7 @@ const App = ({ routes }) => (
     <RoutesProvider routes={routes}>
       <div>
         <h1>App</h1>
-        {routes.map(route => <MatchWithRoutes {...route}/>}
+        {routes.map(route => <MatchWithRoutes {...route}/>)}
       </div>  
     </RoutesProvider>
   </BrowserRouter>
@@ -123,7 +123,7 @@ const App = ({ routes }) => (
 const Child = ({ routes }) => (
   <div>
     <h2>Child</h2>
-    {routes.map(route => <MatchWithRoutes {...route}/>}
+    {routes.map(route => <MatchWithRoutes {...route}/>)}
   </div>  
 )
 
