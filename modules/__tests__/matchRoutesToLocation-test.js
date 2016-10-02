@@ -6,20 +6,28 @@ const routes = [
     name: 'root',
     routes: [
       { pattern: '/foo',
-        name: 'foo'
-      },
-      { pattern: '/bar',
-        name: 'bar'
+        name: 'foo',
+        routes: [
+          { pattern: '/bar',
+            name: 'bar',
+            routes: [
+              { pattern: '/baz',
+                name: 'baz'
+              }
+            ]
+          }
+        ]
       }
     ]
   }
 ]
 
 test('finds matched routes', () => {
-  const location = { pathname: '/foo' }
+  const location = { pathname: '/foo/bar' }
   const matchedRoutes = matchRoutesToLocation(routes, location)
-  expect(matchedRoutes.length).toEqual(2)
+  expect(matchedRoutes.length).toEqual(3)
   expect(matchedRoutes[0]).toEqual(routes[0])
   expect(matchedRoutes[1]).toEqual(routes[0].routes[0])
+  expect(matchedRoutes[2]).toEqual(routes[0].routes[0].routes[0])
 })
 
