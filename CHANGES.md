@@ -5,3 +5,4 @@
 - **Breaking:** The matched routes are now available as `matchedRoutes` on the object returned by `matchRoutes`, which previously returned an array ([#6])
 
 [v0.0.2]: https://github.com/ReactTraining/react-router-addons-routes/compare/v0.0.1...v0.0.2
+[#6]: https://github.com/ReactTraining/react-router-addons-routes/pull/6
