@@ -6,17 +6,25 @@ const mergePatterns = (a, b) => {
     `${a}${b}`
 }
 
-const matchRoutesToLocation = (routes, location, matches=[], parentPattern='') => {
+const matchRoutesToLocation = (routes, location, matchedRoutes=[], params={}, parentPattern='') => {
   routes.forEach((route) => {
     const nestedPattern = mergePatterns(parentPattern, route.pattern)
-    if (matchPattern(nestedPattern, location)) {
-      matches.push(route)
+    const match = matchPattern(nestedPattern, location)
+
+    if (match) {
+      matchedRoutes.push(route)
+
+      if (match.params) {
+        Object.keys(match.params).forEach(key => params[key] = match.params[key])
+      }
+
       if (route.routes) {
-        matchRoutesToLocation(route.routes, location, matches, nestedPattern)
+        matchRoutesToLocation(route.routes, location, matchedRoutes, params, nestedPattern)
       }
     }
   })
-  return matches
+
+  return { matchedRoutes, params }
 }
 
 export default matchRoutesToLocation

@@ -71,18 +71,20 @@ const routes = [
 
 ### `matchRoutesToLocation(routes, location)`
 
-Returns an array of routes that match the location:
+Returns an object containing the following properties
+- `matchedRoutes`, an array of routes that match the location
+- `params`, an object of URL parameter names and matching values
 
 ```js
 const location = { pathname: '/brad-pitt/is/my-cousin' }
-const matchedRoutes = matchRoutesToLocation(routes, location)
+const { matchedRoutes, params } = matchRoutesToLocation(routes, location)
 
 // now you could do some sort of data loading
 // lets assume the route's components have a `loadData` static
 // function on them:
 Promise.all(
   matchedRoutes.filter(route => route.component.loadData).map(route => (
-    route.loadData()
+    route.loadData(params)
   ))
 ).then(data => {
   // put the data somewhere and render
