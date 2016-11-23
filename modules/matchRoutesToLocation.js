@@ -8,7 +8,7 @@ const mergePatterns = (a, b) => {
 
 const matchRoutesToLocation = (routes, location, matchedRoutes=[], params={}, parentPattern='') => {
   routes.forEach((route) => {
-    const nestedPattern = mergePatterns(parentPattern, route.pattern)
+    const nestedPattern = mergePatterns(parentPattern, route.pattern, route.exactly)
     const match = matchPattern(nestedPattern, location)
 
     if (match) {
